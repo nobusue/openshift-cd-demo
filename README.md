@@ -92,7 +92,7 @@ your own names and use the following to create the demo:
 
 * If pipeline execution fails with ```error: no match for "jboss-eap70-openshift"```, import the jboss imagestreams in OpenShift.
   ```
-  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift
+  oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.12/eap/eap70-image-stream.json -n openshift
   ```
 * If Maven fails with `/opt/rh/rh-maven33/root/usr/bin/mvn: line 9:   298 Killed` (e.g. during static analysis), you are running out of memory and need more memory for OpenShift.
 
@@ -152,7 +152,11 @@ It might take a little while before your workspace is set up and ready to be use
 
 ![](images/che-import-project.png?raw=true)
 
-Enter the Gogs repository HTTPS url for `openshift-tasks` as the Git repository url. You can find the repository url in Gogs web console. Make sure the check the **Branch** field and enter `eap-7` in order to clone the `eap-7` branch which is used in this demo. Click on **Import**
+Enter the Gogs repository HTTPS url for `openshift-tasks` as the Git repository url with Git username and password in the 
+url: <br/>
+`http://gogs:gogs@[gogs-hostname]/gogs/openshift-tasks.git`
+
+ You can find the repository url in Gogs web console. Make sure the check the **Branch** field and enter `eap-7` in order to clone the `eap-7` branch which is used in this demo. Click on **Import**
 
 ![](images/che-import-git.png?raw=true)
 
@@ -179,7 +183,7 @@ Run the unit tests in the IDE after you have corrected the issue by right clicki
 ![](images/che-junit-success.png?raw=true)
 
 
-Click on **Git > Commit** to commit the changes to the `openshift-tasks` git repository. Make sure **Push commited changes to ...** UNCHECKED. Click on **Commit** button.
+Click on **Git > Commit** to commit the changes to the `openshift-tasks` git repository. Make sure **Push commited changes to ...** is checked. Click on **Commit** button.
 
 ![](images/che-commit.png?raw=true)
 
